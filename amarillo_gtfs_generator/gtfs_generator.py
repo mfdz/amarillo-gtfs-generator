@@ -22,6 +22,7 @@ from .services.trips import TripStore, Trip
 from .services.carpools import CarpoolService
 from .services.agencies import AgencyService
 from .services.regions import RegionService
+from .services.config import config
 from amarillo.utils.utils import agency_carpool_ids_from_filename
 
 
@@ -68,8 +69,8 @@ def init():
 	logger.info("Loaded %d regions", len(container['regions'].regions))
 
 
-	logger.info("Load stops...")
-	with open('data/stop_sources.json') as stop_sources_file:
+	logger.info("Load stops from %s", config.stop_sources_file)
+	with open(config.stop_sources_file) as stop_sources_file:
 		stop_sources = json.load(stop_sources_file)
 		stop_store = stops.StopsStore(stop_sources)
 
