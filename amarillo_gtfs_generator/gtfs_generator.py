@@ -29,9 +29,11 @@ logger = logging.getLogger(__name__)
 
 class EventHandler(FileSystemEventHandler):
 
-    def on_closed(self, event):
-  
-        logger.info("CLOSE_WRITE: Created %s", event.src_path)
+    def on_modified(self, event):        
+        if not event.src_path.endswith(".json"):
+            return
+
+        logger.info("MODIFIED: Created %s", event.src_path)
         try:
             with open(event.src_path, 'r', encoding='utf-8') as f:
                 dict = json.load(f)
