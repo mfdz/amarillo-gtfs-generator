@@ -80,7 +80,7 @@ def init():
 	container['trips_store'] = TripStore(stop_store)
 
 	# TODO: the carpool service may be obsolete
-	container['carpools'] = CarpoolService(container['trips_store'])
+	container['carpools'] = CarpoolService(container['trips_store'], config.max_age_carpool_offers_in_days)
 
 	logger.info("Restore carpools...")
 

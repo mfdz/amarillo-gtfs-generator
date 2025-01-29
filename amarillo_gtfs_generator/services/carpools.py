@@ -7,11 +7,11 @@ from amarillo.utils.utils import yesterday, is_older_than_days
 
 logger = logging.getLogger(__name__)
 
+
 class CarpoolService():
-    MAX_OFFER_AGE_IN_DAYS = 180
-
-    def __init__(self, trip_store):
-
+    
+    def __init__(self, trip_store, max_age_carpool_offers_in_days: int = 180):
+        self.max_age_carpool_offers_in_days = max_age_carpool_offers_in_days
         self.trip_store = trip_store
         self.carpools: Dict[str, Carpool] = {}
 
@@ -21,10 +21,10 @@ class CarpoolService():
             * it's completly in the past (if it's a single date offer).
               As we know the start time but not latest arrival, we deem
               offers starting the day before yesterday as outdated
-            * it's last update occured before MAX_OFFER_AGE_IN_DAYS
+            * it's last update occured before self.max_age_carpool_offers_in_days
         """
         runs_once = not isinstance(carpool.departureDate, set)        
-        return (is_older_than_days(carpool.lastUpdated.date(), self.MAX_OFFER_AGE_IN_DAYS) or
+        return (is_older_than_days(carpool.lastUpdated.date(), self.max_age_carpool_offers_in_days) or
             (runs_once and carpool.departureDate < yesterday()))
 
     def purge_outdated_offers(self):
