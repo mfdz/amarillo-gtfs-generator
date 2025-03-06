@@ -184,32 +184,6 @@ app = FastAPI(title="Amarillo GTFS Generator",
                           "url": "https://github.com/mfdz/amarillo",
                       },
                   }],
-              servers=[
-                  {
-                      "description": "MobiData BW Amarillo service",
-                      "url": "https://amarillo.mobidata-bw.de"
-                  },
-                  {
-                      "description": "DABB bbnavi Amarillo service",
-                      "url": "https://amarillo.bbnavi.de"
-                  },
-                  {
-                      "description": "Demo server by MFDZ",
-                      "url": "https://amarillo.mfdz.de"
-                  },
-                  {
-                      "description": "Dev server for development",
-                      "url": "https://amarillo-dev.mfdz.de"
-                  },
-                  {
-                      "description": "Server for Mitanand project",
-                      "url": "https://mitanand.mfdz.de"
-                  },
-                  {
-                      "description": "Localhost for development",
-                      "url": "http://localhost:8000"
-                  }
-              ],
               redoc_url=None
               )
 
