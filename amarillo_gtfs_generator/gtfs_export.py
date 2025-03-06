@@ -11,7 +11,7 @@ from amarillo.utils.utils import assert_folder_exists
 from .models.gtfs import GtfsTimeDelta, GtfsFeedInfo, GtfsAgency, GtfsRoute, GtfsStop, GtfsStopTime, GtfsTrip, GtfsCalendar, GtfsCalendarDate, GtfsShape
 from amarillo_stops.stops import is_carpooling_stop
 from .gtfs_constants import *
-from .models.Carpool import Agency
+from amarillo.models.Carpool import Agency
 
 
 logger = logging.getLogger(__name__)

@@ -15,10 +15,10 @@ import logging
 import os
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
-from .models.Carpool import Carpool, Region
+from amarillo.models.Carpool import Carpool
 from .utils import _assert_region_exists
 from amarillo_stops import stops
-from .services.trips import TripStore, Trip
+from .services.trips import TripStore
 from .services.carpools import CarpoolService
 from .services.agencies import AgencyService
 from .services.regions import RegionService
