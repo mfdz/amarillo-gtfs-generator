@@ -1,14 +1,16 @@
 [project]
 name = "amarillo-gtfs-generator"
-version = "2.0.1"
+version = "2.0.2"
 description = "FastAPI app providing GTFS generation for Amarillo carpools"
 readme = "README.md"
 license = {file = "LICENSE"}
 dependencies = [
     "amarillo",
     "amarillo-stops",
-    "schedule",
-    "watchdog",
+    "schedule==1.2.1",
+    "watchdog==3.0.0",
+    "protobuf==3.20.3",
+    "geojson-pydantic==1.0.1",
 ]
 
 [tool.setuptools.packages]
