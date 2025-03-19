@@ -1,5 +1,5 @@
 from fastapi import FastAPI, Body, HTTPException, status
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, RedirectResponse
 
 from .gtfs_export import GtfsExport, GtfsFeedInfo, GtfsAgency
 from .gtfs import GtfsRtProducer
@@ -230,3 +230,7 @@ async def post_sync():
 	logger.info(f"Sync")
 
 	midnight()
+	
+@app.get("/", include_in_schema=False)
+async def docs_redirect():
+    return RedirectResponse(url='/docs')
